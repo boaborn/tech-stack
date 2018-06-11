@@ -9,9 +9,11 @@ class ListItem extends Component {
     const { expanded, library } = this.props
     if (expanded) {
       return (
-        <Text >
-          { library.description }
-        </Text>
+        <CardSection>
+          <Text >
+            { library.description }
+          </Text>
+        </CardSection>
       )
     }
   }
