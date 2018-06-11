@@ -4,13 +4,20 @@ import {
   TouchableWithoutFeedback, 
   View, 
   TouchableOpacity,
-  LayoutAnimation 
+  LayoutAnimation,
+  NativeModules 
 } from 'react-native'
 import { connect } from 'react-redux'
 import { CardSection } from './common'
 import * as actions from '../actions'
 
 class ListItem extends Component {
+  componentWillUpdate() {
+    const { UIManager } = NativeModules
+    LayoutAnimation.spring(UIManager.setLayoutAnimationEnabledExperimental
+      && UIManager.setLayoutAnimationEnabledExperimental(true))
+  }
+
   renderDescription() {
     const { expanded, library } = this.props
     if (expanded) {
